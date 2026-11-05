@@ -26,7 +26,13 @@ jobs:
           build-tools: 35.0.0
           components: platforms;android-35,build-tools;35.0.0
 
-      - name: Build with Gradle
+      - name: Install System Gradle & Generate Wrapper
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gradle
+          gradle wrapper
+
+      - name: Build APK with Gradle
         run: |
           chmod +x ./gradlew
           ./gradlew assembleDebug
