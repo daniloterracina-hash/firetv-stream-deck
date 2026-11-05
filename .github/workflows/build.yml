@@ -19,10 +19,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install System Gradle
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gradle
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
 
       - name: Generate Gradle Wrapper & Build APK
         run: |
